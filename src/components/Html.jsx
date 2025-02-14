@@ -36,9 +36,6 @@ const Html = forwardRef((props, ref) => {
             console.log(form)
         }
     }))
-    function handle(){
-        scroll.offset+=0.1
-    }
 
 
     useFrame(() => {
@@ -52,7 +49,7 @@ const Html = forwardRef((props, ref) => {
 
     })
     return (
-        <Scroll html onClick={handle}>
+        <Scroll html>
             <div  id='info' >
                 <p>Sorry Not Available on Mobile Devices : ( </p>
             </div>
