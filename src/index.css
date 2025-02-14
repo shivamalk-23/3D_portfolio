@@ -2,12 +2,17 @@ body,html{
   padding: 0;
   margin: 0;
   font-family: "Roboto", serif;
+  background-color: black;
 }
-*{
-
+*{   
+ 
     margin: 0;
     padding: 0;
   }
+body{
+  cursor: url('/public/icons8-cursor\ \(1\).svg'),auto;
+}
+
 #root{
 
   height: 100vh;
@@ -20,17 +25,184 @@ body,html{
   width: 100vw;
 }
 .hero{
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-padding: 0rem 10rem;
-justify-content: center;
-  width: 100vw;
+
+
+  
 }
 .title{
   color: white;
   font-size: 140px;
 }
-h1{
- font-size: 80px;
+
+li{
+  padding: 0.5rem;
+  display: flex;
+
+  align-items: center;
+  height: 20px;
+}
+li a{
+
+  padding: 0.5rem;
+  margin-right: 0.2rem;
+border-radius: 5px;
+  transition: 0.2s;
+
+ margin-left: 2rem;
+  text-decoration:none;
+  align-self: center;
+  font-style: none;
+  color: black;
+}
+li a:hover{
+  background-color: rgb(0, 0, 0);
+  padding: 0.5rem;
+  margin-right: 0.2rem;
+border-radius: 5px;
+  transition: 0.2s;
+ 
+ margin-left: 2rem;
+  text-decoration:none;
+  align-self: center;
+  font-style: none;
+  color: rgb(255, 255, 255);
+}
+.lasttext{
+  font-weight: 300;
+  font-size: 15px;
+  margin-left: 1.5rem;
+}
+
+.images{
+ height: 40vh;
+ padding: 1rem;
+ border-radius: 5px;
+ border: solid black 2px;
+ background-color: azure;
+}
+.projects{
+max-width: 100vw;
+display: flex;
+max-height: 120vh;
+align-items: center;
+margin: 0.5rem;
+
+}
+.boxes{
+  display:flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius:5px;
+  width: 30vw;
+  justify-content:center;
+  align-items:center;
+  overflow-x:none;
+  margin: 0.5rem;
+
+  
+  border:2px solid black;
+  padding:10vh 3vw;
+  transition: 0.2;
+  }
+  .boxes h2{
+    font-size: 30px;
+    margin-bottom: 0.5rem;
+
+  }
+  .contacts{
+    height: 60%;
+  border: 2px solid black;
+  align-self: flex-end;
+  border-radius: 5px;
+ 
+  padding: 3rem;
+
+  background-color: white;
+
+  }
+  li{
+    margin: 1rem;
+
+
+  }
+  #info{
+    display: 'none';
+  }
+  #info p{
+    display: none;
+  }
+  img{
+    max-width: 300px;
+  }
+  @media only screen and (max-width: 1300px) {
+  .footer{
+     margin-top: 30vh;
+  }
+  }
+
+@media only screen and (max-width: 1000px) {
+  #filled-basic{
+    height: 2vh;
+    padding: 5vh;
+  }
+
+  img{
+   max-width: 200px;
+  }
+  .images{
+    height: 25vh;
+    padding: 0.5rem;
+  }
+.projects{
+  overflow-x: scroll;
+ max-height: 170vh;
+ padding: 7vh 0.2vw;
+overflow-y: hidden;
+
+}
+.boxes{
+  width: 50vw;
+  padding:2vh 4vw;
+  
+}
+
+
+   .boxes h2{
+      font-size: 18px;
+   }
+
+.contacts{
+    font-size: 13px;
+      padding: 0.5rem 0.5rem;
+    margin: 0rem ;
+    margin-top: 20vh;
+   
+}
+img{
+  height: 15px;
+}
+li{
+  margin: 0rem;
+}
+
+}
+
+
+
+
+
+@media only screen and (orientation: portrait) {
+  #info {
+    display: block;
+    background-color: white;
+    height: 100vh;
+    position: 1000vh;
+    width: 100vw;
+    padding-top: 10rem;
+ text-align: center;
+  }
+
+  #info p{
+    display: block;
+  }
 }

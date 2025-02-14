@@ -1,20 +1,23 @@
 /* eslint-disable react/no-unknown-property */
 
-import { OrbitControls, } from "@react-three/drei"
+import {  PerspectiveCamera, } from "@react-three/drei"
 
 
 import Experience from "./components/Experience"
-import { OrthographicCamera } from '@react-three/drei'
+
+import { OrbitControls } from "@react-three/drei"
 import { useEffect, useRef} from "react"
 import { useFrame } from "@react-three/fiber"
+
 const App = () => {
   const mouse = useRef({ x: 0, y: 0 });
  const cameraRef=useRef()
 
+
  useEffect(() => {
-  const handleMouseMove = (event) => {
-    const x = (event.clientX / window.innerWidth) * 2 - 1;  // Normalize to [-1, 1]
-    const y = -(event.clientY / window.innerHeight) * 2 + 1; // Normalize to [-1, 1]
+ const handleMouseMove = (event) => {
+    const x = (event.clientX / window.innerWidth) * 2 - 1;  
+    const y = -(event.clientY / window.innerHeight) * 2 + 1; 
     mouse.current = { x, y };
   };
 
@@ -25,24 +28,27 @@ const App = () => {
   };
 }, []);
 
-// Use useFrame to update the camera position on each frame
+
 useFrame(() => {
-  if (cameraRef.current) {
-    // Adjust the camera position based on mouse x and y
+
+  if (cameraRef.current.position) {
+   
     cameraRef.current.position.x = mouse.current.x * 10;  // Modify multiplier for sensitivity
-    cameraRef.current.position.y = mouse.current.y * 10;  // Modify multiplier for sensitivity
-    cameraRef.current.updateProjectionMatrix();  // Update projection matrix after position change
+    cameraRef.current.position.y = mouse.current.y * 7.3;  // Modify multiplier for sensitivity
+    cameraRef.current.updateProjectionMatrix();  
   }
+
 });
+
 
   return (
 <>
-   
-      <OrthographicCamera ref={cameraRef}   zoom={12.1} rotation={[-0.92,  -0.2,  0.0316]} position={[92,80,96]} bottom={-157} makeDefault/>
+<PerspectiveCamera  fov={90} near={0.01} far ={1000} ref={cameraRef}  zoom={5} rotation={[ 0.08259274500642709, -0.13101089634552393, 0.90813802002649524]} position={[ -4.6484375, -9.884892086330934,100.86298026713703]} makeDefault/>
     <ambientLight intensity={1.5} />
-    <directionalLight position={[10, 10, 10]} intensity={1} />
-<Experience/>
-<OrbitControls enableZoom={false}   />
+    <directionalLight position={[10, 10, 10]} intensity={2} />
+<Experience cameraRef={cameraRef} />
+<OrbitControls enablePan={false} enableRotate={false} enableZoom={false}  />
+
   
 
 

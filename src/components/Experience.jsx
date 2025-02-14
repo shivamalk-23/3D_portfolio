@@ -2,18 +2,33 @@
 import {   ScrollControls} from "@react-three/drei"
 
 
-import { Model } from "./Waterfall"
-import Page from "./Page"
+import { Waterfall } from "./Waterfall"
+
+import { useRef, useState,} from "react"
+import Html from "./Html"
 
 
 const Experience = () => {
+
+    const ref=useRef(null)
+
+
+    function HandleDisplay(){
+      ref.current.display()
+      console.log('clicked exper')
+ 
+    }
     return (
     
            <>
+           
+
            <ScrollControls pages={4.3} damping={0.25}>
-            <Page/>
-            <Model/>
+            <Html ref={ref} />
+         
+            <Waterfall HandleDisplay={HandleDisplay}   />
            </ScrollControls>
+           
            
            </>
             
