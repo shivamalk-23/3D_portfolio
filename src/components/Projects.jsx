@@ -50,13 +50,13 @@ const Projects = () => {
       
             <Box sx={{ display: proj === project.id ? 'block' : 'none', width:{xs:'40vw',md:'30vw',lg:'30vw'} }} >
               <p style={{ fontSize: '0.9rem', marginTop: '10px',}}>
-               {}
+               {project.para}
                </p>
             </Box>
       
             <Box sx={{ padding: 2, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: {xs:'0.3rem', lg:'1rem'} }}>
-              <a href="" className="button" style={{ textDecoration: 'none', backgroundColor: 'black', color: 'white', padding: '0.5rem 2rem', borderRadius: '5px', fontSize: '0.9rem' }}>Code</a>
-              <a href="" className="button" style={{ textDecoration: 'none', border: 'solid black 2px', color: 'black', padding: '0.5rem 1rem', borderRadius: '5px', fontSize: '0.9rem' }}>Live Link</a>
+              <a href={project.code} className="button" style={{ textDecoration: 'none', backgroundColor: 'black', color: 'white', padding: '0.5rem 2rem', borderRadius: '5px', fontSize: '0.9rem' }}>Code</a>
+              <a href={project.live} className="button" style={{ textDecoration: 'none', border: 'solid black 2px', color: 'black', padding: '0.5rem 1rem', borderRadius: '5px', fontSize: '0.9rem' }}>Live Link</a>
             </Box>
           </Box>
         ))}

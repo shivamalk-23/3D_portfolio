@@ -1,8 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 
 import {  PerspectiveCamera, } from "@react-three/drei"
-
-
+import { useGesture } from "@use-gesture/react"
 import Experience from "./components/Experience"
 
 import { OrbitControls } from "@react-three/drei"
@@ -12,8 +11,18 @@ import { useFrame } from "@react-three/fiber"
 const App = () => {
   const mouse = useRef({ x: 0, y: 0 });
  const cameraRef=useRef()
-
-
+ const containerRef=useRef()
+ useGesture(
+  {
+    onWheel: ({ offset }) => {
+      scroll.offset = offset[1] / window.innerHeight;
+    },
+    onDrag: ({ offset }) => {
+      scroll.offset = offset[1] / window.innerHeight;
+    },
+  },
+  { target: containerRef, eventOptions: { passive: false } }
+);
  useEffect(() => {
  const handleMouseMove = (event) => {
     const x = (event.clientX / window.innerWidth) * 2 - 1;  
@@ -52,8 +61,8 @@ useFrame(() => {
   
 
 
+</>
 
-  </>
   )
 }
 

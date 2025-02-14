@@ -25,7 +25,7 @@ const Experience = () => {
 
            <ScrollControls pages={4.3} damping={0.25}>
             <Html ref={ref} />
-         
+            
             <Waterfall HandleDisplay={HandleDisplay}   />
            </ScrollControls>
            

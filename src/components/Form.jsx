@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 
 import { Box,TextField,Button } from '@mui/material'
-const Form = () => {
+const Form = ({submit,setsubmit}) => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+    <Box sx={{ display:submit? 'flex':'none', flexDirection: 'column', width: '100%' }}>
                     <h2 style={{ fontWeight: '600', textAlign: 'center', marginBottom: '5px' }}>Get in touch with me</h2>
                     <form style={{ display: 'flex', flexDirection: 'column' }}>
                       <TextField sx={{ mb: 1, marginTop: 0.2, mx: 2, }} id="filled-basic" label="Name" variant="filled" />

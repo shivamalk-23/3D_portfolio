@@ -3,7 +3,20 @@ body,html{
   margin: 0;
   font-family: "Roboto", serif;
   background-color: black;
+   overflow: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
+  touch-action: pan-y; /* Allow vertical touch gestures */
 }
+canvas {
+  touch-action: manipulation; /* Allows scrolling while touching */
+  pointer-events: auto;
+}
+
+html, body {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; /* Ensures smooth scroll */
+}
+
 *{   
  
     margin: 0;
@@ -191,7 +204,7 @@ li{
 
 
 
-@media only screen and (orientation: portrait) {
+@media screen and (max-width: 1024px){
   #info {
     display: block;
     background-color: white;
@@ -205,4 +218,10 @@ li{
   #info p{
     display: block;
   }
+}
+
+
+
+::-webkit-scrollbar {
+  display: none;
 }

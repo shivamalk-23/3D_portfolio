@@ -9,7 +9,8 @@ import Projects from './Projects'
 import Form from './Form'
 
 
-import React from 'react'
+
+
 
 // eslint-disable-next-line react/display-name
 const Html = forwardRef((props, ref) => {
@@ -25,6 +26,9 @@ const Html = forwardRef((props, ref) => {
 
     })
 
+
+    
+
     useImperativeHandle(ref, () => ({
         // eslint-disable-next-line no-unused-labels
         display: () => {
@@ -32,7 +36,9 @@ const Html = forwardRef((props, ref) => {
             console.log(form)
         }
     }))
-
+    function handle(){
+        scroll.offset+=0.1
+    }
 
 
     useFrame(() => {
@@ -40,14 +46,15 @@ const Html = forwardRef((props, ref) => {
         setBox(prev => {
             return { ...prev, aboutOpacity: scroll.offset * 7, projectOpacity: scroll.offset * 1.9 }
         })
-
+        console.log(scroll.offset)
+      
 
 
     })
     return (
-        <Scroll html>
-            <div id='info' >
-                <p>View the site Landscape mode please(prefer computer for better experience)</p>
+        <Scroll html onClick={handle}>
+            <div  id='info' >
+                <p>Sorry Not Available on Mobile Devices : ( </p>
             </div>
             <div id='screen'>
 
@@ -79,7 +86,7 @@ const Html = forwardRef((props, ref) => {
 
                 </Box>
 
-                <Box className='footer' sx={{ display:'flex',justifyContent:'start' }}>
+                <Box className='footer' sx={{ display:'flex',justifyContent:'start',marginTop:'60vh' }}>
 
                     <Box className='contacts' sx={{ display: form ? 'none' : 'block', m: 3 }} >
                         <Typography vartiant='h1' sx={{ fontSize: '30px', fontWeight: '800', textAlign: 'center' }}>My Contacts</Typography>
@@ -99,8 +106,8 @@ const Html = forwardRef((props, ref) => {
 
                         {submit ?
                             (
-                                <Form />
-                            ) : (<Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                                <Form submit={submit} setsubmit={setsubmit}/>
+                            ) : (<Box sx={{ display:submit? 'none':'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',padding:'4rem 0' }}>
 
                                 <h2 style={{ fontWeight: '400' }}>Thanks, I Will get in contack with you!</h2>
                                 <Button sx={{ backgroundColor: 'black', color: 'white', m: 3 }} onClick={() => setsubmit(prev => !prev)} variant='contained'>Submit Another one</Button>
